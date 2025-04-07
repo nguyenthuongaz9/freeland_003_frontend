@@ -20,7 +20,7 @@ export const Sidebar = () => {
             (text, index) => (
               <SheetClose asChild key={index}>
                 <a
-                  href="#"
+                  href="/products"
                   className="text-gray-700 text-md hover:text-red-500 transition-all duration-300"
                 >
                   {text}
