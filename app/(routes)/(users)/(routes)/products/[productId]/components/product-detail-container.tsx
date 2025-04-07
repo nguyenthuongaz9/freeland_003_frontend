@@ -27,13 +27,19 @@ const ProductDetailContainer = ({ productId }: ProductDetailContainerProps) => {
 
   console.log(productId)
   const { data: product } = useQuery({
-    queryKey: ['product', productId],
+    queryKey: ['product'],
     queryFn: async () => {
-      const response = await axios.get(`${hostname}/products/public/${productId}`);
+      const response = await axios.get(`${hostname}/products/public/${productId}`, {
+        headers: {
+          'ngrok-skip-browser-warning': 'true'
+        }
+      });
+      console.log(response)
       return response.data.data;
     },
     enabled: !!productId, 
   });
+  console.log(product)
 
   const { data: commentData } = useCommentQuery({ productId });
   const comments: Comment[] = commentData?.content || [];
