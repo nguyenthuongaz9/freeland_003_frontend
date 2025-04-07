@@ -2,6 +2,7 @@
 
 import { useSidebarStore } from "@/hooks/use-sidebar-store";
 import { Sheet, SheetClose, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
+import Link from "next/link";
 
 export const Sidebar = () => {
   const { isOpen, onClose } = useSidebarStore();
@@ -19,12 +20,12 @@ export const Sidebar = () => {
           {["Tổ yến Khánh Hòa", "Quà tặng cao cấp", "Thương hiệu", "Yến chưng tươi"].map(
             (text, index) => (
               <SheetClose asChild key={index}>
-                <a
+                <Link
                   href="/products"
                   className="text-gray-700 text-md hover:text-red-500 transition-all duration-300"
                 >
                   {text}
-                </a>
+                </Link>
               </SheetClose>
             )
           )}
